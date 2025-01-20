@@ -13,8 +13,8 @@
 - [E-commerce Website](https:/#.com)
 
 ## 🌐 Let's Connect:
-- [LinkedIn](https://linkedin.com/in/pravesh)
-- [YouTube](https://youtube.com/@s)
+- [LinkedIn](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
+- [Instagram](https://www.instagram.com/iapravesh?igsh=bTY2cjNoY2N2amc2)
 - [Portfolio](https://pravesh.lovestoblog.com)
 
 
