@@ -3,14 +3,13 @@
 - 💻 Web Developer.
 - 🌟 Skills: HTML, CSS, JavaScript, PHP.
 - 🚀 Building projects and learning every day.
-- 🔭 I’m currently working on (###).
+- 🔭 I’m currently working on (E-commerce website).
 - 🌱 I’m currently learning (Ract).
 <!--- 🤔 I’m looking for help.-->
 
 ## 🌟 Projects:
-- [Movie Details Website](https://#.com)
 - [Portfolio Website](https://#.com)
-- [E-commerce Website](https:/#.com)
+- [E-commerce Website](https://pravesh.lovestoblog.com)
 
 ## 🌐 Let's Connect:
 - [LinkedIn](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
