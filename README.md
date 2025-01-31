@@ -9,7 +9,7 @@
 
 ## 🌟 Projects:
 - [Portfolio Website](https://pravesh.lovestoblog.com)
-- [Anonymous Massage](https://pravesh.lovestoblog.com/Anonymous/anonymous.html)
+- [Anonymous Massage](https://pravesh.lovestoblog.com/Anynamous/anynamous.html)
 - [E-commerce Website](https://pravesh.lovestoblog.com/Shop/shop.php)
 
 ## 🌐 Let's Connect:
