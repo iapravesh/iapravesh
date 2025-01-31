@@ -9,7 +9,8 @@
 
 ## 🌟 Projects:
 - [Portfolio Website](https://#.com)
-- [E-commerce Website](https://pravesh.lovestoblog.com)
+- [Anonymous Massage](https://pravesh.lovestoblog.com/Anonymous/anonymous.html)
+- [E-commerce Website](https://pravesh.lovestoblog.com/Shop/shop.php)
 
 ## 🌐 Let's Connect:
 - [LinkedIn](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
