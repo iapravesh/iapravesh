@@ -12,15 +12,19 @@
 - [Anonymous Massage](https://pravesh.lovestoblog.com/Anynamous/anynamous.html)
 - [E-commerce Website](https://pravesh.lovestoblog.com/Shop/shop.php)
 
-## 🌐 Let's Connect:
-- [LinkedIn](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
-- [Instagram](https://www.instagram.com/iapravesh?igsh=bTY2cjNoY2N2amc2)
-- [Portfolio](https://pravesh.lovestoblog.com)
-
 ## 🗞️ Certificate:
 - [C Programming](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
 - [HTML](https://www.instagram.com/iapravesh?igsh=bTY2cjNoY2N2amc2)
 - [CSS](https://pravesh.lovestoblog.com)
+- [PHP](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
+- [JS](https://www.instagram.com/iapravesh?igsh=bTY2cjNoY2N2amc2)
+- [SQL](https://pravesh.lovestoblog.com)
+
+
+## 🌐 Let's Connect:
+- [LinkedIn](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
+- [Instagram](https://www.instagram.com/iapravesh?igsh=bTY2cjNoY2N2amc2)
+- [Portfolio](https://pravesh.lovestoblog.com)
 
 
 <!--
