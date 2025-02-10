@@ -1,4 +1,4 @@
-# Hi, I'm Pravesh Singh 👋
+# Hi, I'm Pravesh 👋
 
 - 💻 Web Developer.
 - 🌟 Skills: HTML, CSS, JavaScript, PHP.
