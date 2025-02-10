@@ -1,4 +1,4 @@
-# Hi, I'm Pravesh 👋
+**Hi, I'm Pravesh 👋**
 
 - 💻 Web Developer.
 - 🌟 Skills: HTML, CSS, JavaScript, PHP.
@@ -13,7 +13,7 @@
 - [E-commerce Website](https://pravesh.lovestoblog.com/Shop/shop.php)
 
 ## 🗞️ Certificate:
-### Sololearn certificate
+**Sololearn certificate**
 - [C Programming](https://api2.sololearn.com/v2/certificates/CT-FKOB8IIL/image/png?t=638747710974769050)
 - [HTML](https://api2.sololearn.com/v2/certificates/CC-FIMQMQKL/image/png?t=638747708717496650)
 - [CSS](https://api2.sololearn.com/v2/certificates/CT-YBZM0LEZ/image/png?t=638144827256826330)
