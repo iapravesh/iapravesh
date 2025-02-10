@@ -13,12 +13,13 @@
 - [E-commerce Website](https://pravesh.lovestoblog.com/Shop/shop.php)
 
 ## 🗞️ Certificate:
-- [C Programming](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
-- [HTML](https://www.instagram.com/iapravesh?igsh=bTY2cjNoY2N2amc2)
-- [CSS](https://pravesh.lovestoblog.com)
-- [PHP](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
-- [JS](https://www.instagram.com/iapravesh?igsh=bTY2cjNoY2N2amc2)
-- [SQL](https://pravesh.lovestoblog.com)
+### Sololearn certificate
+- [C Programming](https://api2.sololearn.com/v2/certificates/CT-FKOB8IIL/image/png?t=638747710974769050)
+- [HTML](https://api2.sololearn.com/v2/certificates/CC-FIMQMQKL/image/png?t=638747708717496650)
+- [CSS](https://api2.sololearn.com/v2/certificates/CT-YBZM0LEZ/image/png?t=638144827256826330)
+- [PHP](https://api2.sololearn.com/v2/certificates/CC-FKBX0HVS/image/png?t=638747708722443270)
+- [JS](https://api2.sololearn.com/v2/certificates/CT-BERLNUJE/image/png?t=638151850023675220)
+- [SQL](https://api2.sololearn.com/v2/certificates/CT-KQBUL6PX/image/png?t=638747710126350090)
 
 
 ## 🌐 Let's Connect:
