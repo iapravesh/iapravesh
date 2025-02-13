@@ -13,7 +13,7 @@
 - [E-commerce Website](https://pravesh.lovestoblog.com/Shop/shop.php)
 
 ## 🗞️ Certificate:
-**Sololearn certificate**
+**Sololearn Certificate**
 - [C Programming](https://api2.sololearn.com/v2/certificates/CT-FKOB8IIL/image/png?t=638747710974769050)
 - [HTML](https://api2.sololearn.com/v2/certificates/CC-FIMQMQKL/image/png?t=638747708717496650)
 - [CSS](https://api2.sololearn.com/v2/certificates/CT-YBZM0LEZ/image/png?t=638144827256826330)
@@ -21,6 +21,12 @@
 - [JS](https://api2.sololearn.com/v2/certificates/CT-BERLNUJE/image/png?t=638151850023675220)
 - [SQL](https://api2.sololearn.com/v2/certificates/CT-KQBUL6PX/image/png?t=638747710126350090)
 
+**Great Learning Certificate**
+- [C Programming](https://api2.sololearn.com/v2/certificates/CT-FKOB8IIL/image/png?t=638747710974769050)
+
+
+**Simplilearn Certificate**
+- [C Programming](https://api2.sololearn.com/v2/certificates/CT-FKOB8IIL/image/png?t=638747710974769050)
 
 ## 🌐 Let's Connect:
 - [LinkedIn](https://www.linkedin.com/in/praveshpatel?trk=contact-info)
