@@ -9,8 +9,8 @@
 
 ## 🌟 Projects:
 - [Portfolio Website](https://pravesh.lovestoblog.com)
-- [Anonymous Massage](https://pravesh.lovestoblog.com/Anynamous/anynamous.html)
-- [E-commerce Website](https://pravesh.lovestoblog.com/Shop/shop.php)
+- [Anonymous Massage](https://pravesh.lovestoblog.com/Anynamous)
+- [E-commerce Website](https://pravesh.lovestoblog.com/Shop)
 
 ## 🗞️ Certificate:
 **Sololearn Certificate**
