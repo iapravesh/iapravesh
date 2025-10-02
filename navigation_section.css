@@ -1,0 +1,25 @@
+/* Navigation Section */
+nav{
+  display: flex;
+  justify-content: center;
+  background: #1a1a1a;
+  padding: 0;
+  gap:10px;
+}
+nav a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  padding: 5px;
+}
+nav a:hover {
+  color: #ff3c00;
+  border-bottom: 2px solid #ff3c00; /* optional underline effect */
+}
+nav a.active {
+  color: #ff3c00;
+  border-bottom: 2px solid #ff3c00; /* optional underline effect */
+}
+
+

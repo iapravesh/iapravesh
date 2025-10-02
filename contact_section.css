@@ -1,0 +1,39 @@
+/* Contact Section */
+.contact-section {
+  text-align: center;
+  justify-content: center;
+}
+
+.contact-section .line {
+  margin-bottom: 20px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact a {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+  width: 220px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.instagram { background: #E1306C; }
+.youtube   { background: #FF0000; }
+.email     { background: #F07600; }
+.linkedin  { background: #0077B5; }
+.github    { background: #F1F1F1; }
+
+.contact a:hover {
+  opacity: 0.85;
+}
+
