@@ -27,10 +27,14 @@
       width: 200px;
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      transition: transform 0.2s, border 0.2s;
+      border: 2px solid transparent;
     }
     .video-card:hover {
       transform: scale(1.05);
+    }
+    .video-card.active {
+      border: 2px solid #007BFF;
     }
     .video-card img {
       width: 100%;
@@ -50,6 +54,11 @@
       width: 100%;
       border-radius: 10px;
     }
+    #currentTitle {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -61,6 +70,7 @@
 </div>
 
 <div class="player-container">
+  <div id="currentTitle">Select a video to play</div>
   <video id="videoPlayer" controls>
     <source src="" type="video/mp4">
     Your browser does not support HTML5 video.
@@ -68,17 +78,24 @@
 </div>
 
 <script>
-  // Example video data
   const videos = [
-  {
-    title: "My Archive Video",
-    thumbnail: "https://archive.org/services/img/VID20250716144420", // Archive thumbnail
-    url: "https://archive.org/download/YourVideoID/VID20250716144420.mp4" 
-  }
-];
+    {
+      title: "My Archive Video",
+      thumbnail: "https://archive.org/services/img/VID20250716144420",
+      url: "https://archive.org/download/YourVideoID/VID20250716144420.mp4"
+    },
+    {
+      title: "Example Video 2",
+      thumbnail: "https://via.placeholder.com/200x120?text=Video+2",
+      url: "https://www.w3schools.com/html/movie.mp4"
+    }
+  ];
 
   const videoList = document.getElementById('videoList');
   const player = document.getElementById('videoPlayer');
+  const currentTitle = document.getElementById('currentTitle');
+
+  let activeCard = null;
 
   // Render video cards
   videos.forEach((video, index) => {
@@ -89,8 +106,20 @@
       <p>${video.title}</p>
     `;
     card.addEventListener('click', () => {
+      // Load video in player
       player.src = video.url;
       player.play();
+
+      // Update current title
+      currentTitle.textContent = video.title;
+
+      // Highlight active card
+      if (activeCard) activeCard.classList.remove('active');
+      card.classList.add('active');
+      activeCard = card;
+
+      // Scroll player into view smoothly
+      player.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
     videoList.appendChild(card);
   });
