@@ -1,122 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video List Player with Popup</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f0f0f0;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .video-card {
-      background: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      width: 200px;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s, border 0.2s;
-      border: 2px solid transparent;
-    }
-    .video-card:hover {
-      transform: scale(1.05);
-    }
-    .video-card img {
-      width: 100%;
-      border-radius: 5px;
-    }
-    .video-card p {
-      text-align: center;
-      margin: 8px 0 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video List YouTube Style</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f0f0f0;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    /* Popup Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      overflow: auto;
-      padding: 20px;
-    }
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      max-width: 800px;
-      width: 100%;
-      border-radius: 10px;
-      position: relative;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px; right: 15px;
-      font-size: 25px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .modal video {
-      width: 100%;
-      border-radius: 10px;
-    }
-    .suggestions {
-      margin-top: 15px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .suggestion-card {
-      width: 120px;
-      cursor: pointer;
-      text-align: center;
-    }
-    .suggestion-card img {
-      width: 100%;
-      border-radius: 5px;
-    }
-  </style>
+/* Video list */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.video-card {
+  background: #fff;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.video-card:hover {
+  transform: scale(1.05);
+}
+.video-card img {
+  width: 100%;
+  display: block;
+}
+.video-card p {
+  text-align: center;
+  margin: 8px 0;
+  padding: 0 5px;
+  font-size: 14px;
+}
+
+/* Player */
+.player-container {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  position: relative;
+}
+.player-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* 16:9 Ratio */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+}
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* Related videos */
+.related-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.related-card {
+  width: 150px;
+  cursor: pointer;
+}
+.related-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+.related-card p {
+  text-align: center;
+  margin: 5px 0 0;
+  font-size: 13px;
+}
+</style>
 </head>
 <body>
 
-<h1>My Video List</h1>
+<h1>Video List YouTube Style</h1>
 
-<div class="container" id="videoList">
-  <!-- Video cards will appear here -->
-</div>
-
-<!-- Modal Popup -->
-<div class="modal" id="videoModal">
-  <div class="modal-content">
-    <span class="close-btn" id="closeModal">&times;</span>
-    <h3 id="modalTitle">Video Title</h3>
-    <video id="modalVideo" controls>
+<div class="player-container">
+  <div class="player-title" id="playerTitle">Select a video to play</div>
+  <div class="video-wrapper">
+    <video id="mainPlayer" controls>
       <source src="" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
-    <h4>Related Videos:</h4>
-    <div class="suggestions" id="suggestionsList"></div>
   </div>
+</div>
+
+<div class="container" id="videoList">
+  <!-- Video cards go here -->
+</div>
+
+<h3 style="text-align:center;margin-top:20px;">Related Videos</h3>
+<div class="related-container" id="relatedList">
+  <!-- Related videos go here -->
 </div>
 
 <script>
 const videos = [
   {
-    title: "My Archive Video",
+    title: "Archive Video",
     thumbnail: "https://archive.org/services/img/vid-20250716144420",
     url: "https://archive.org/download/vid-20250716144420/VID20250716144420.mp4"
   },
@@ -133,61 +138,49 @@ const videos = [
 ];
 
 const videoList = document.getElementById('videoList');
-const modal = document.getElementById('videoModal');
-const modalVideo = document.getElementById('modalVideo');
-const modalTitle = document.getElementById('modalTitle');
-const suggestionsList = document.getElementById('suggestionsList');
-const closeModal = document.getElementById('closeModal');
+const relatedList = document.getElementById('relatedList');
+const mainPlayer = document.getElementById('mainPlayer');
+const playerTitle = document.getElementById('playerTitle');
 
-// Render video cards
+let currentIndex = null;
+
+// Render main video list
 videos.forEach((video, index) => {
   const card = document.createElement('div');
   card.className = 'video-card';
-  card.innerHTML = `
-    <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='https://via.placeholder.com/200x120?text=No+Image'">
-    <p>${video.title}</p>
-  `;
-  card.addEventListener('click', () => openModal(index));
+  card.innerHTML = `<img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='https://via.placeholder.com/200x120?text=No+Image'">
+                    <p>${video.title}</p>`;
+  card.addEventListener('click', () => playVideo(index));
   videoList.appendChild(card);
 });
 
-// Open modal function
-function openModal(index) {
-  const video = videos[index];
-  modalVideo.src = video.url;
-  modalVideo.play();
-  modalTitle.textContent = video.title;
-  modal.style.display = "flex";
-
-  // Render related videos
-  suggestionsList.innerHTML = "";
-  videos.forEach((v, i) => {
-    if(i !== index){
-      const sCard = document.createElement('div');
-      sCard.className = 'suggestion-card';
-      sCard.innerHTML = `
-        <img src="${v.thumbnail}" alt="${v.title}" onerror="this.src='https://via.placeholder.com/120x70?text=No+Image'">
-        <p>${v.title}</p>
-      `;
-      sCard.addEventListener('click', () => openModal(i));
-      suggestionsList.appendChild(sCard);
+// Render related videos
+function renderRelated(excludeIndex){
+  relatedList.innerHTML = '';
+  videos.forEach((video, index) => {
+    if(index !== excludeIndex){
+      const card = document.createElement('div');
+      card.className = 'related-card';
+      card.innerHTML = `<img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='https://via.placeholder.com/150x90?text=No+Image'">
+                        <p>${video.title}</p>`;
+      card.addEventListener('click', () => playVideo(index));
+      relatedList.appendChild(card);
     }
   });
 }
 
-// Close modal
-closeModal.addEventListener('click', () => {
-  modalVideo.pause();
-  modal.style.display = "none";
-});
+// Play video function
+function playVideo(index){
+  currentIndex = index;
+  mainPlayer.src = videos[index].url;
+  mainPlayer.play();
+  playerTitle.textContent = videos[index].title;
+  renderRelated(index);
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
 
-// Close modal on clicking outside
-window.addEventListener('click', (e) => {
-  if(e.target == modal){
-    modalVideo.pause();
-    modal.style.display = "none";
-  }
-});
+// Optionally, play first video automatically
+// playVideo(0);
 </script>
 
 </body>
