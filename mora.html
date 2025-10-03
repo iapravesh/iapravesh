@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video List Player</title>
+  <title>Video List Player with Popup</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,9 +33,6 @@
     .video-card:hover {
       transform: scale(1.05);
     }
-    .video-card.active {
-      border: 2px solid #007BFF;
-    }
     .video-card img {
       width: 100%;
       border-radius: 5px;
@@ -44,20 +41,53 @@
       text-align: center;
       margin: 8px 0 0;
     }
-    .player-container {
-      width: 100%;
-      max-width: 720px;
-      margin: 30px auto;
-      text-align: center;
+
+    /* Popup Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      overflow: auto;
+      padding: 20px;
     }
-    video {
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      max-width: 800px;
+      width: 100%;
+      border-radius: 10px;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modal video {
       width: 100%;
       border-radius: 10px;
     }
-    #currentTitle {
+    .suggestions {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .suggestion-card {
+      width: 120px;
+      cursor: pointer;
       text-align: center;
-      font-weight: bold;
-      margin-bottom: 10px;
+    }
+    .suggestion-card img {
+      width: 100%;
+      border-radius: 5px;
     }
   </style>
 </head>
@@ -69,16 +99,22 @@
   <!-- Video cards will appear here -->
 </div>
 
-<div class="player-container">
-  <div id="currentTitle">Select a video to play</div>
-  <video id="videoPlayer" controls>
-    <source src="" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+<!-- Modal Popup -->
+<div class="modal" id="videoModal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <h3 id="modalTitle">Video Title</h3>
+    <video id="modalVideo" controls>
+      <source src="" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <h4>Related Videos:</h4>
+    <div class="suggestions" id="suggestionsList"></div>
+  </div>
 </div>
 
 <script>
-  const videos = [
+const videos = [
   {
     title: "My Archive Video",
     thumbnail: "https://archive.org/services/img/vid-20250716144420",
@@ -88,41 +124,70 @@
     title: "Example Video 2",
     thumbnail: "https://via.placeholder.com/200x120?text=Video+2",
     url: "https://www.w3schools.com/html/movie.mp4"
+  },
+  {
+    title: "Example Video 3",
+    thumbnail: "https://via.placeholder.com/200x120?text=Video+3",
+    url: "https://www.w3schools.com/html/mov_bbb.mp4"
   }
 ];
 
-  const videoList = document.getElementById('videoList');
-  const player = document.getElementById('videoPlayer');
-  const currentTitle = document.getElementById('currentTitle');
+const videoList = document.getElementById('videoList');
+const modal = document.getElementById('videoModal');
+const modalVideo = document.getElementById('modalVideo');
+const modalTitle = document.getElementById('modalTitle');
+const suggestionsList = document.getElementById('suggestionsList');
+const closeModal = document.getElementById('closeModal');
 
-  let activeCard = null;
+// Render video cards
+videos.forEach((video, index) => {
+  const card = document.createElement('div');
+  card.className = 'video-card';
+  card.innerHTML = `
+    <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='https://via.placeholder.com/200x120?text=No+Image'">
+    <p>${video.title}</p>
+  `;
+  card.addEventListener('click', () => openModal(index));
+  videoList.appendChild(card);
+});
 
-  // Render video cards
-  videos.forEach((video, index) => {
-    const card = document.createElement('div');
-    card.className = 'video-card';
-    card.innerHTML = `
-      <img src="${video.thumbnail}" alt="${video.title}">
-      <p>${video.title}</p>
-    `;
-    card.addEventListener('click', () => {
-      // Load video in player
-      player.src = video.url;
-      player.play();
+// Open modal function
+function openModal(index) {
+  const video = videos[index];
+  modalVideo.src = video.url;
+  modalVideo.play();
+  modalTitle.textContent = video.title;
+  modal.style.display = "flex";
 
-      // Update current title
-      currentTitle.textContent = video.title;
-
-      // Highlight active card
-      if (activeCard) activeCard.classList.remove('active');
-      card.classList.add('active');
-      activeCard = card;
-
-      // Scroll player into view smoothly
-      player.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-    videoList.appendChild(card);
+  // Render related videos
+  suggestionsList.innerHTML = "";
+  videos.forEach((v, i) => {
+    if(i !== index){
+      const sCard = document.createElement('div');
+      sCard.className = 'suggestion-card';
+      sCard.innerHTML = `
+        <img src="${v.thumbnail}" alt="${v.title}" onerror="this.src='https://via.placeholder.com/120x70?text=No+Image'">
+        <p>${v.title}</p>
+      `;
+      sCard.addEventListener('click', () => openModal(i));
+      suggestionsList.appendChild(sCard);
+    }
   });
+}
+
+// Close modal
+closeModal.addEventListener('click', () => {
+  modalVideo.pause();
+  modal.style.display = "none";
+});
+
+// Close modal on clicking outside
+window.addEventListener('click', (e) => {
+  if(e.target == modal){
+    modalVideo.pause();
+    modal.style.display = "none";
+  }
+});
 </script>
 
 </body>
