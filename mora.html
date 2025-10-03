@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video List Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f0f0f0;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .video-card {
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      width: 200px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .video-card:hover {
+      transform: scale(1.05);
+    }
+    .video-card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .video-card p {
+      text-align: center;
+      margin: 8px 0 0;
+    }
+    .player-container {
+      width: 100%;
+      max-width: 720px;
+      margin: 30px auto;
+      text-align: center;
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>My Video List</h1>
+
+<div class="container" id="videoList">
+  <!-- Video cards will appear here -->
+</div>
+
+<div class="player-container">
+  <video id="videoPlayer" controls>
+    <source src="" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+<script>
+  // Example video data
+  const videos = [
+    {
+      title: "Free Fire Gameplay 1",
+      thumbnail: "https://via.placeholder.com/200x120?text=Video+1",
+      url: "https://www.w3schools.com/html/mov_bbb.mp4"
+    },
+    {
+      title: "Free Fire Gameplay 2",
+      thumbnail: "https://via.placeholder.com/200x120?text=Video+2",
+      url: "https://www.w3schools.com/html/movie.mp4"
+    },
+    {
+      title: "Free Fire Gameplay 3",
+      thumbnail: "https://via.placeholder.com/200x120?text=Video+3",
+      url: "https://www.w3schools.com/html/mov_bbb.mp4"
+    }
+  ];
+
+  const videoList = document.getElementById('videoList');
+  const player = document.getElementById('videoPlayer');
+
+  // Render video cards
+  videos.forEach((video, index) => {
+    const card = document.createElement('div');
+    card.className = 'video-card';
+    card.innerHTML = `
+      <img src="${video.thumbnail}" alt="${video.title}">
+      <p>${video.title}</p>
+    `;
+    card.addEventListener('click', () => {
+      player.src = video.url;
+      player.play();
+    });
+    videoList.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
